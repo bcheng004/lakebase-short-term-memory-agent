@@ -1,0 +1,21 @@
+[server]
+enableStaticServing = true
+
+[theme]
+primaryColor = "#ae5630"
+backgroundColor = "#2a2a28"
+secondaryBackgroundColor = "#232220"
+textColor = "#e5e5e2"
+linkColor = "#e5e5e2"
+borderColor = "#343330"
+showWidgetBorder = true
+baseRadius = "0.6rem"
+codeFont = "Fira Code:https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap"
+codeBackgroundColor = "#232322"
+showSidebarBorder = true
+headingFontSizes = ["40px", "32px", "24px"]
+headingFontWeights = 500
+
+[theme.sidebar]
+backgroundColor = "#21201f"
+secondaryBackgroundColor = "#232220"
