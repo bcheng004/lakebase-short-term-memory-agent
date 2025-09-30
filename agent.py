@@ -53,8 +53,8 @@ tools = []
 
 # You can use UDFs in Unity Catalog as agent tools
 uc_tool_names = [
-    "bo_cheng_dnb_demos.agents.get_cyber_threat_info",
-    "bo_cheng_dnb_demos.agents.get_user_info",
+    "demo_catalog.agents.get_cyber_threat_info",
+    "demo_catalog.agents.get_user_info",
 ]
 uc_toolkit = UCFunctionToolkit(function_names=uc_tool_names)
 tools.extend(uc_toolkit.tools)
@@ -66,7 +66,7 @@ tools.extend(uc_toolkit.tools)
 # # TODO: Add vector search indexes as tools or delete this block
 # vector_search_index_tools = [
 #     VectorSearchRetrieverTool(
-#         index_name="bo_cheng_dnb_demos.agents.poc_customer_support_index",
+#         index_name="demo_catalog.agents.poc_customer_support_index",
 #         num_results=3,
 #         tool_name="customer_support_retriever",
 #         tool_description="Retrieves information about customer support responses",
@@ -224,8 +224,8 @@ config = {
     {tools}""",
     "conn_db_name": "databricks_postgres",
     "conn_ssl_mode": "require",
-    "conn_host": "instance-71597a8a-7e99-4c85-b29a-f751a73ecb85.database.cloud.databricks.com",
-    "instance_name": "bo-test-lakebase-3",
+    "conn_host": "your-lakebase-instance.database.cloud.databricks.com",
+    "instance_name": "demo-lakebase-instance",
 }
 
 AGENT = LangGraphChatAgent(config=config, tools=tools)
