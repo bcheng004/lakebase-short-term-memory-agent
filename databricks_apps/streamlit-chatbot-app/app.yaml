@@ -8,4 +8,4 @@ env:
   - name: STREAMLIT_BROWSER_GATHER_USAGE_STATS
     value: "false"
   - name: "SERVING_ENDPOINT"
-    value: "agents_demo_catalog-agents-memory_agent"
+    value: "agents_catalog.schema-agents-memory_agent"
