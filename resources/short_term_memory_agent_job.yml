@@ -7,7 +7,7 @@
 #           notebook_task:
 #             notebook_path: ../02-lakebase-langgraph-checkpointer-agent.ipynb
 #             base_parameters:
-#               catalog: bo_cheng_dnb_demos
+#               catalog: catalog
 #               model: memory_agent
 #               schema: agents
 #               secret_scope: dbdemos
