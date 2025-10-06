@@ -9,7 +9,7 @@
 #             base_parameters:
 #               catalog: catalog
 #               model: memory_agent
-#               schema: agents
+#               schema: schema
 #               secret_scope: dbdemos
 #             source: WORKSPACE
 #           environment_key: env1
