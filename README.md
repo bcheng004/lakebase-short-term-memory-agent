@@ -47,8 +47,9 @@ lakebase-memory-accelerator/
 │       ├── model_serving_utils.py            # Model serving utilities
 │       └── requirements.txt                  # Python dependencies
 └── resources/                                # Databricks bundle configurations
-    ├── lakebase_instance.yml                 # Lakebase instance config
-    └── short_term_memory_agent_job.yml       # Job deployment config
+    ├── lakebase_instance.yml                 # Example DABs Lakebase instance config
+    ├── short_term_memory_agent_job.yml       # Example DABs Job deployment config
+    └── short_term_memory_app.yml             # Example DABs App deployment config
 ```
 
 ## Getting Started
