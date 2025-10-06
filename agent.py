@@ -53,8 +53,8 @@ tools = []
 
 # You can use UDFs in Unity Catalog as agent tools
 uc_tool_names = [
-    "catalog.schema.agents.get_cyber_threat_info",
-    "catalog.schema.agents.get_user_info",
+    "catalog.schema.get_cyber_threat_info",
+    "catalog.schema.get_user_info",
 ]
 uc_toolkit = UCFunctionToolkit(function_names=uc_tool_names)
 tools.extend(uc_toolkit.tools)
@@ -66,7 +66,7 @@ tools.extend(uc_toolkit.tools)
 # # TODO: Add vector search indexes as tools or delete this block
 # vector_search_index_tools = [
 #     VectorSearchRetrieverTool(
-#         index_name="catalog.schema.agents.poc_customer_support_index",
+#         index_name="catalog.schema.poc_customer_support_index",
 #         num_results=3,
 #         tool_name="customer_support_retriever",
 #         tool_description="Retrieves information about customer support responses",
