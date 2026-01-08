@@ -13,7 +13,7 @@ def _get_endpoint_task_type(endpoint_name: str) -> str:
 def is_endpoint_supported(endpoint_name: str) -> bool:
     """Check if the endpoint has a supported task type."""
     task_type = _get_endpoint_task_type(endpoint_name)
-    supported_task_types = ["agent/v1/chat", "agent/v2/chat", "llm/v1/chat"]
+    supported_task_types = ["agent/v1/chat", "agent/v2/chat", "llm/v1/chat", "agent/v1/responses"]
     return task_type in supported_task_types
 
 
@@ -38,16 +38,14 @@ def _query_endpoint(
     res = get_deploy_client("databricks").predict(
         endpoint=endpoint_name,
         inputs={
-            "messages": messages,
+            "input": messages,
             "max_tokens": max_tokens,
             "custom_inputs": {"thread_id": thread_id},
             "temperature": 0.1,
         },
     )
-    if "messages" in res:
-        return res["messages"]
-    elif "choices" in res:
-        return [res["choices"][0]["message"]]
+    if "output" in res:
+        return res["output"][-1]["content"]
     raise Exception(
         "This app can only run against:"
         "1) Databricks foundation model or external model endpoints with the chat task type (described in https://docs.databricks.com/aws/en/machine-learning/model-serving/score-foundation-models#chat-completion-model-query)"

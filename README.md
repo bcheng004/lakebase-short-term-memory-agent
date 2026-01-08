@@ -78,7 +78,7 @@ Run `01-lakebase-instance-setup.ipynb` to:
 #### Step 3: Agent Development and Deployment
 Run `02-lakebase-langgraph-checkpointer-agent.ipynb` to:
 - Build the stateful LangGraph agent
-- Configure PostgreSQL checkpointer
+- Configure databricks-langchain checkpointer
 - Test agent locally with conversation threads
 - Register model to Unity Catalog
 - Deploy to Databricks Model Serving
@@ -94,23 +94,8 @@ Deploy the Streamlit chat interface:
 ### LangGraphChatAgent Class
 
 The main agent implementation (`agent.py`) features:
-- **PostgreSQL Connection Pool**: Efficient database connection management
-- **OAuth Token Refresh**: Automatic credential rotation for Lakebase
 - **Conversation Checkpointing**: State persistence after each agent step
-- **Tool Integration**: Unity Catalog functions and vector search tools
-
-### Key Configuration
-
-```python
-config = {
-    "llm_model_serving_endpoint_name": "databricks-claude-3-7-sonnet",
-    "llm_prompt_template": "Cybersecurity assistant prompt...",
-    "conn_db_name": "databricks_postgres",
-    "conn_ssl_mode": "require",
-    "conn_host": "your-lakebase-instance.database.cloud.databricks.com",
-    "instance_name": "your-lakebase-instance-name"
-}
-```
+- **Tool Integration**: Unity Catalog tools
 
 ### Available Tools
 
@@ -193,22 +178,16 @@ Use `checkpoints-example-query.dbquery.ipynb` to:
 3. Update system prompt to include tool usage
 
 ### Modifying Agent Behavior
-1. Update `llm_prompt_template` in configuration
+1. Update `SYSTEM_PROMPT` in configuration
 2. Adjust tool selection logic
 3. Customize conversation flow in LangGraph
-
-### Scaling Configuration
-- Adjust connection pool sizes (`DB_POOL_MIN_SIZE`, `DB_POOL_MAX_SIZE`)
-- Configure model serving autoscaling
-- Optimize checkpoint storage patterns
 
 ## Troubleshooting
 
 ### Common Issues
-1. **Lakebase Connection**: Ensure proper OAuth credentials and instance status
-2. **Thread Management**: Verify thread_id persistence in application state
-3. **Tool Permissions**: Check Unity Catalog function access rights
-4. **Model Serving**: Validate endpoint deployment and health
+1. **Thread Management**: Verify thread_id persistence in application state
+2. **Tool Permissions**: Check Unity Catalog function access rights
+3. **Model Serving**: Validate endpoint deployment and health
 
 ### Debug Resources
 - MLflow experiment tracking for model behavior
@@ -224,7 +203,7 @@ Use `checkpoints-example-query.dbquery.ipynb` to:
 
 ## Documentation Links
 
-- [Databricks Lakebase Documentation](https://docs.databricks.com/en/oltp/)
+- [Databricks AI Agent Memory Documentation](https://docs.databricks.com/aws/en/generative-ai/agent-framework/stateful-agents#example-notebook)
 - [LangGraph Checkpoint Documentation](https://langchain-ai.github.io/langgraph/concepts/persistence/)
 - [Databricks Agent Framework](https://docs.databricks.com/en/generative-ai/agent-framework/)
 - [Unity Catalog Functions](https://docs.databricks.com/en/sql/language-manual/sql-ref-functions.html)

@@ -109,7 +109,7 @@ else:
                 messages=[st.session_state.messages[-1]],
                 max_tokens=400,
                 thread_id=thread_id,
-            )["content"]
+            )["text"]
             st.markdown(assistant_response)
 
         # Add assistant response to chat history
